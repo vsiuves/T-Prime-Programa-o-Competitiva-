@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#define TAM 1000000
+
+int main(){
+    int n;
+    long long num;
+    char crivo[TAM+1];
+    crivo[0] = 0;
+    crivo[1] = 0;
+    for(int i=2;i<=TAM;i++)
+        crivo[i]='1';
+    for (int k = 2; k <= TAM; k++) {
+        if (crivo[k] == '1' && (long long)k*k <= TAM) {
+            for (int j = k * k; j <= TAM ; j += k)
+                crivo[j] = '0';
+        }
+    }
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++) {
+        scanf("%lld", &num);
+
+        if (num == 1 || num == 2 || num == 3) {
+            printf("NO\n");
+            continue;
+        }
+        if(num==4){
+            printf("YES\n");
+            continue;
+        }
+        if (num < 4 || num % 2 == 0) {
+            printf("NO\n");
+            continue;
+        }
+
+        long long raizInt = (long long)sqrt((double)num);
+        if (raizInt * raizInt < num)
+            raizInt++;
+        if (raizInt * raizInt != num || raizInt > TAM) {
+            printf("NO\n");
+            continue;
+        }
+
+        printf(crivo[raizInt] == '1' ? "YES\n" : "NO\n");
+    }
+
+    return 0;
+}

@@ -1,4 +1,4 @@
-# Nome do Projeto
+# T Prime Programação Competitiva
 Um código que analísa o número de entrada do usuario e verifica se é um T Prime, número que tem apenas 3 divisores.
 O usuário entra primeiramente com n (1>n>=10^5), que vai repetir n vezes a segunda entrada, no qual o usuario insere x (1>=x>=10^12), que são os números a serem testados.
 Fontes: Codeblocks 230B.
